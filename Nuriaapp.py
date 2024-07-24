@@ -5,10 +5,7 @@ import numpy as np
 
 
 # Load the model
-model_path = 'guymodel.sav'  # Make sure the file is uploaded to the Colab environment
-with open(model_path, 'rb') as f:
-    saved_model = pickle.load(f)
-
+saved_model = pickle.load(open('guymodel.sav', 'rb'))
 
 # Assuming 'values' is defined somewhere in your code
 columns = ['itching', 'skin_rash', 'nodal_skin_eruptions', 'continuous_sneezing', 'shivering',
