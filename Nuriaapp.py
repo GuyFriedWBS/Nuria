@@ -5,7 +5,7 @@ import numpy as np
 
 
 # Load the model
-model_path = 'random_forest_model.pkl'  # Make sure the file is uploaded to the Colab environment
+model_path = 'guymodel.sav'  # Make sure the file is uploaded to the Colab environment
 with open(model_path, 'rb') as f:
     saved_model = pickle.load(f)
 
