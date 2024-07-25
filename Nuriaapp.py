@@ -71,7 +71,7 @@ columns = ['itching', 'skin_rash', 'nodal_skin_eruptions', 'continuous_sneezing'
            'inflammatory_nails', 'blister', 'red_sore_around_nose', 'yellow_crust_ooze', 'prognosis']
 
 # Create selectboxes for each feature
-selected_symptoms = st.selectbox("Select a symptom", columns)
+selected_symptoms = st.multiselect("Select a symptom", columns)
 
 # Create a DataFrame with one row of zeros
 df_user = pd.DataFrame([[0] * len(columns)], columns=columns)
@@ -85,7 +85,7 @@ for symptom in selected_symptoms:
 df_user
 
 # Make a prediction
-prediction = model.predict(df_user)
+#prediction = model.predict(df_user)
 
 # Display the prediction
-st.write("The predicted probability of the disease is:", prediction)
+#st.write("The predicted probability of the disease is:", prediction)
