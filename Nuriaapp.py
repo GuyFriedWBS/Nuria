@@ -68,7 +68,7 @@ columns = ['itching', 'skin_rash', 'nodal_skin_eruptions', 'continuous_sneezing'
            'history_of_alcohol_consumption', 'fluid_overload.1', 'blood_in_sputum',
            'prominent_veins_on_calf', 'palpitations', 'painful_walking', 'pus_filled_pimples',
            'blackheads', 'scurring', 'skin_peeling', 'silver_like_dusting', 'small_dents_in_nails',
-           'inflammatory_nails', 'blister', 'red_sore_around_nose', 'yellow_crust_ooze', 'prognosis']
+           'inflammatory_nails', 'blister', 'red_sore_around_nose', 'yellow_crust_ooze']
 
 # Create selectboxes for each feature
 selected_symptoms = st.multiselect("Select a symptom", columns)
