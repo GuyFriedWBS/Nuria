@@ -5,10 +5,39 @@ import numpy as np
 from sklearn.model_selection import train_test_split, cross_val_score, KFold
 from sklearn.metrics import f1_score, roc_auc_score
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier, ExtraTreesClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import accuracy_score
+from sklearn.pipeline import make_pipeline
 
+#Loading data
+# training2
+url = "https://drive.google.com/file/d/19-xEfVfvART7dM5OgR5yVcrH8KPZ5AaR/view?usp=drive_link"
+path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
+training2 = pd.read_csv(path)
+training2 = training2.drop(["Unnamed: 133"],axis=1)
+training2.drop_duplicates(inplace=True)
+
+#splitting the data
+x = training2.drop('prognosis',axis=1)
+y = training2['prognosis']
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.30, random_state=101)
+
+#creating a model
+# Define the model with specific hyperparameters
+model = RandomForestClassifier(
+    ccp_alpha=0.0,
+    max_depth=None,
+    min_samples_leaf=1,
+    n_estimators=100,
+    random_state=42
+)
+
+# Train the model
+model.fit(x_train, y_train)
 
 # Load the model
-saved_model = pickle.load(open('guymodel.sav', 'rb'))
+#saved_model = pickle.load(open('guymodel.sav', 'rb'))
 
 # Assuming 'values' is defined somewhere in your code
 columns = ['itching', 'skin_rash', 'nodal_skin_eruptions', 'continuous_sneezing', 'shivering',
@@ -53,7 +82,7 @@ for symptom in selected_symptoms:
 df_user
 
 # Make a prediction
-prediction = saved_model.predict_proba(df_user)
+prediction = model.predict_proba(df_user)
 
 # Display the prediction
 st.write("The predicted probability of the disease is:", prediction)
