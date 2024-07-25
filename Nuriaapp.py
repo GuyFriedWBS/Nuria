@@ -34,7 +34,7 @@ model = RandomForestClassifier(
 )
 
 # Train the model
-model.fit(x_train, y_train)
+model2 = model.fit(x_train, y_train)
 
 # Load the model
 #saved_model = pickle.load(open('guymodel.sav', 'rb'))
@@ -85,7 +85,7 @@ for symptom in selected_symptoms:
 df_user
 
 # Make a prediction
-#prediction = model.predict(df_user)
+prediction = model2.predict(df_user)
 
 # Display the prediction
-#st.write("The predicted probability of the disease is:", prediction)
+st.write("The predicted probability of the disease is:", prediction)
