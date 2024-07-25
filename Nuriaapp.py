@@ -73,6 +73,9 @@ columns = ['itching', 'skin_rash', 'nodal_skin_eruptions', 'continuous_sneezing'
 # Create selectboxes for each feature
 selected_symptoms = st.selectbox("Select a symptom", columns)
 
+# Create a DataFrame with one row of zeros
+df_user = pd.DataFrame([[0] * len(columns)], columns=columns)
+
 # Update the DataFrame based on selected symptoms
 for symptom in selected_symptoms:
     if symptom in df_user.columns:
