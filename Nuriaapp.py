@@ -85,7 +85,7 @@ for symptom in selected_symptoms:
 df_user
 
 # Make a prediction
-prediction = model.predict_proba(df_user)
+prediction = model.predict(df_user)
 
 # Display the prediction
 st.write("The predicted probability of the disease is:", prediction)
